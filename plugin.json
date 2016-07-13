@@ -1,0 +1,15 @@
+{
+	"id": "nodebb-plugin-subcategory-reordering",
+	"url": "https://github.com/NodeBB/nodebb-plugin-subcategory-reordering",
+	"library": "./library.js",
+	"hooks": [
+		{ "hook": "static:app.load", "method": "init" },
+		{ "hook": "action:settings.set", "method": "reloadSettings" },
+		{ "hook": "filter:admin.header.build", "method": "addAdminNavigation" },
+		{ "hook": "action:topic.save", "method": "onNewTopic" }
+	],
+	"acpScripts": [
+		"static/lib/admin.js"
+	],
+	"templates": "./static/templates"
+}

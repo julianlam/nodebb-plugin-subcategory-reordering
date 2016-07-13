@@ -1,0 +1,31 @@
+{
+  "name": "nodebb-plugin-subcategory-reordering",
+  "version": "0.0.0",
+  "description": "Automatic subcategory reordering for NodeBB",
+  "main": "library.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/julianlam/nodebb-plugin-subcategory-reordering"
+  },
+  "keywords": [
+    "nodebb",
+    "plugin",
+    "subcategory",
+    "reordering"
+  ],
+  "author": {
+    "name": "Julian Lam",
+    "email": "julian@nodebb.org"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/julianlam/nodebb-plugin-subcategory-reordering/issues"
+  },
+  "readmeFilename": "README.md",
+  "nbbpm": {
+    "compatibility": "^1.0.0"
+  },
+  "dependencies": {
+    "underscore": "1.8.3"
+  }
+}
