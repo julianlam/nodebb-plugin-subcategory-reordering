@@ -6,7 +6,8 @@
 		{ "hook": "static:app.load", "method": "init" },
 		{ "hook": "action:settings.set", "method": "reloadSettings" },
 		{ "hook": "filter:admin.header.build", "method": "addAdminNavigation" },
-		{ "hook": "action:topic.save", "method": "onNewTopic" }
+		{ "hook": "action:topic.save", "method": "onNewTopicOrReply" },
+		{ "hook": "action:topic.reply", "method": "onNewTopicOrReply" }
 	],
 	"acpScripts": [
 		"static/lib/admin.js"

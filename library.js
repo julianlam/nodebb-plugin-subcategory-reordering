@@ -44,8 +44,9 @@ plugin.addAdminNavigation = function(header, callback) {
 	callback(null, header);
 };
 
-plugin.onNewTopic = function(data) {
+plugin.onNewTopicOrReply = function(data) {
 	categories.getCategoryField(data.cid, 'parentCid', function(err, parentCid) {
+		console.log(data.cid, parentCid);
 		if (parseInt(parentCid, 10) !== 0 && plugin._settings['cid:' + parentCid + ':enabled'] === 'on') {
 			floatToTop(data.cid, parentCid);
 		}
@@ -54,8 +55,12 @@ plugin.onNewTopic = function(data) {
 
 function floatToTop(cid, parentCid) {
 	db.sortedSetAdd('cid:' + parentCid + ':children', -Date.now(), cid, function(err) {
-		console.log(err, 'done');
+		if (!err) {
+			winston.verbose('[plugins/subcategory-reordering] Floating cid ' + cid + ' to the top of cid ' + parentCid + '.');
+		} else {
+			winston.error(err.message);
+		}
 	});
-};
+}
 
 module.exports = plugin;
