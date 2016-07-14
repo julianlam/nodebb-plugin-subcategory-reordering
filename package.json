@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-subcategory-reordering",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Automatic subcategory reordering for NodeBB",
   "main": "library.js",
   "repository": {
