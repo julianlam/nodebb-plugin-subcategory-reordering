@@ -45,10 +45,10 @@ plugin.addAdminNavigation = function(header, callback) {
 };
 
 plugin.onNewTopicOrReply = function(data) {
-	categories.getCategoryField(data.cid, 'parentCid', function(err, parentCid) {
-		console.log(data.cid, parentCid);
+	var cid = data.topic ? data.topic.cid : data.post.topic.cid;
+	categories.getCategoryField(cid, 'parentCid', function(err, parentCid) {
 		if (parseInt(parentCid, 10) !== 0 && plugin._settings['cid:' + parentCid + ':enabled'] === 'on') {
-			floatToTop(data.cid, parentCid);
+			floatToTop(cid, parentCid);
 		}
 	});
 };
